@@ -1,0 +1,31 @@
+name: Auto Đào Quặng
+
+on:
+  schedule:
+    # Cấu hình tự động chạy mỗi 3 tiếng 1 lần
+    - cron: '0 */3 * * *'
+  workflow_dispatch: # Tạo nút chạy thủ công
+
+jobs:
+  farm:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Lấy mã nguồn
+        uses: actions/checkout@v3
+
+      - name: Cài đặt Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Cài đặt thư viện
+        run: |
+          pip install selenium telethon
+
+      - name: Chạy Script Đào Quặng
+        env:
+          API_ID: ${{ secrets.API_ID }}
+          API_HASH: ${{ secrets.API_HASH }}
+          TG_SESSION: ${{ secrets.TG_SESSION }}
+        run: python bot_quang.py
