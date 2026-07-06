@@ -23,6 +23,9 @@ jobs:
         run: |
           pip install selenium telethon
 
+      - name: Ngủ 30 giây để tránh Rate Limit của Telegram
+        run: sleep 30s
+        
       - name: Chạy Script Đào Quặng
         env:
           API_ID: ${{ secrets.API_ID }}
