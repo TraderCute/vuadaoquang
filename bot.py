@@ -126,47 +126,78 @@ def do_daily_tasks(driver):
     except Exception as e:
         logger(f"Lỗi khi làm nhiệm vụ: {str(e)}", "ERROR")
 
-# ================= MÔ-ĐUN QUẢN LÝ HẦM MỎ (TỐI GIẢN + KIỂM TOÁN) =================
+# ================= MÔ-ĐUN QUẢN LÝ HẦM MỎ (CHECK THỜI GIAN) =================
 def manage_mining(driver):
     print("\n" + "="*40)
-    print("⛏️ BÁO CÁO TÌNH TRẠNG HẦM MỎ")
+    print(" BÁO CÁO TÌNH TRẠNG HẦM MỎ")
     print("="*40)
     try:
-        # 1. Kiểm tra trạng thái máy chạy (để hốt quặng)
-        is_active = driver.execute_script("return document.getElementById('miningActiveView').style.display !== 'none';")
-        
-        if is_active:
-            ore_before = check_ore_balance(driver)
-            logger(f"Phát hiện máy đang chạy, tiến hành thu hoạch... (Đang có: {ore_before} Quặng)", "INFO")
-            driver.execute_script("document.getElementById('btnClaim').click();")
-            time.sleep(3)
-            try:
-                driver.execute_script("closeCustomAlert();")
-            except: pass
-            
-            time.sleep(2) # Chờ giao diện nhảy số
-            ore_after = check_ore_balance(driver)
-            profit = ore_after - ore_before
-            logger(f"Đã xẻ thịt xong mỏ quặng! Lãi ròng: +{profit} Quặng (Tổng tài sản: {ore_after})", "SUCCESS")
-        
-        # 2. Kiểm tra trạng thái tắt (sau khi thu hoạch xong, máy tự động đóng)
+        # 1. Kiểm tra trạng thái máy đang tắt
         is_inactive = driver.execute_script("return document.getElementById('miningNotActiveView').style.display !== 'none';")
         
         if is_inactive:
-            logger("Máy đào đang tắt. Kích hoạt điện để cày ca mới...", "WARNING")
+            logger("Máy đào đang tắt. Kích hoạt khởi động...", "WARNING")
             driver.execute_script("document.getElementById('btnStartMining').click();")
             time.sleep(3)
             try:
                 driver.execute_script("closeCustomAlert();")
-            except: pass
-            logger("✅ Đã khởi động máy đào thành công!", "SUCCESS")
-        else:
-            logger("Máy vẫn đang nhả quặng tằng tằng.", "INFO")
+            except:
+                pass
+            logger("Đã khởi động máy đào thành công!", "SUCCESS")
+            return
+
+        # 2. Kiểm tra trạng thái máy đang chạy
+        is_active = driver.execute_script("return document.getElementById('miningActiveView').style.display !== 'none';")
+        
+        if is_active:
+            countdown = driver.execute_script("return document.getElementById('miningCountdown').innerText.trim();")
+            logger(f"Trạng thái: Đang đào (Thời gian còn lại: {countdown})", "INFO")
+            
+            # Phân tích thời gian đếm ngược
+            total_mins = 999
+            if "ĐẦY" in countdown.upper() or countdown == "00:00:00":
+                total_mins = 0
+            else:
+                try:
+                    parts = countdown.split(':')
+                    if len(parts) == 3: # Định dạng HH:MM:SS
+                        total_mins = int(parts[0]) * 60 + int(parts[1])
+                    elif len(parts) == 2: # Định dạng MM:SS
+                        total_mins = int(parts[0])
+                except:
+                    pass
+            
+            # Chỉ thu hoạch khi còn <= 10 phút hoặc đã đầy
+            if total_mins <= 10:
+                ore_before = check_ore_balance(driver)
+                logger(f"Đã đến thời điểm thu hoạch. Tiến hành lấy quặng... (Đang có: {ore_before})", "SUCCESS")
+                
+                driver.execute_script("document.getElementById('btnClaim').click();")
+                time.sleep(3)
+                try:
+                    driver.execute_script("closeCustomAlert();")
+                except:
+                    pass
+                
+                time.sleep(2) 
+                ore_after = check_ore_balance(driver)
+                profit = ore_after - ore_before
+                logger(f"Thu hoạch hoàn tất! Lãi ròng: +{profit} Quặng (Tổng: {ore_after})", "SUCCESS")
+                
+                # Bật lại máy ngay lập tức để chạy ca mới
+                logger("Khởi động lại máy đào...", "INFO")
+                driver.execute_script("document.getElementById('btnStartMining').click();")
+                time.sleep(3)
+                try:
+                    driver.execute_script("closeCustomAlert();")
+                except:
+                    pass
+            else:
+                logger(f"Chưa đến giờ thu hoạch (còn > 10 phút). Bỏ qua để máy tiếp tục chạy.", "WARNING")
 
     except Exception as e:
         logger(f"Lỗi quản lý hầm mỏ: {str(e)}", "ERROR")
     print("="*40 + "\n")
-
 # ================= ĐÒN ĐÁNH TỔNG HỢP =================
 def main():
     logger("🚀 KHỞI ĐỘNG HỆ THỐNG AUTO ĐÀO QUẶNG V3.0 (KẾ TOÁN TRƯỞNG)", "SUCCESS")
