@@ -44,6 +44,7 @@ def setup_driver():
     logger("Khởi động cỗ máy khai khoáng (Chế độ Server Đám Mây)...", "INFO")
     options = webdriver.ChromeOptions()
     options.add_argument('--headless=new') 
+    options.add_argument('--disable-popup-blocking')
     options.add_argument('--disable-gpu')
     options.add_argument('--no-sandbox')
     options.add_argument('--disable-dev-shm-usage')
@@ -100,7 +101,7 @@ def do_daily_tasks(driver):
             driver.execute_script("document.getElementById('btnWatchAd').click();")
             
             # Chờ đúng 2.5s cho SDK nó bung hết form ẩn/iframe ra
-            time.sleep(2.5) 
+            time.sleep(4) 
             
             # Tung đòn chí mạng: Ép click phần cứng qua CDP (Bypass 100% chống gian lận)
             logger("Tung trick lỏ: Mô phỏng click vật lý cấp độ phần cứng...", "INFO")
