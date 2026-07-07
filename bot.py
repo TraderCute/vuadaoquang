@@ -71,7 +71,7 @@ def check_ore_balance(driver):
     except:
         return 0
 
-# ================= MÔ-ĐUN CÀY NHIỆM VỤ HÀNG NGÀY =================
+# ================= MÔ-ĐUN CÀY NHIỆM VỤ HÀNG NGÀY (BẢN HACK CỬA SAU) =================
 def do_daily_tasks(driver):
     logger("🎁 Bắt đầu càn quét nhiệm vụ hàng ngày...", "INFO")
     try:
@@ -91,60 +91,37 @@ def do_daily_tasks(driver):
         else:
             logger("Hôm nay đã điểm danh rồi.", "WARNING")
 
-        # 2. Xem Quảng Cáo (Trick Lỏ Click Cấp Độ Phần Cứng)
-        logger("Đang tìm nút Xem Quảng Cáo...", "TIME")
+        # 2. Xem Quảng Cáo (ĐÒN HACK API: XUYÊN THỦNG HỆ THỐNG)
+        logger("Đang tìm mỏ Quảng Cáo...", "TIME")
         is_ad_ready = driver.execute_script("return !document.getElementById('btnWatchAd').disabled;")
         if is_ad_ready:
             ore_before = check_ore_balance(driver)
-            logger(f"Phát hiện mỏ QC! (Đang có: {ore_before} Quặng). Đang bật video...", "SUCCESS")
+            logger(f"Phát hiện QC! (Đang có: {ore_before} Quặng). Bỏ qua Video, tung đòn Hack API...", "SUCCESS")
             
-            driver.execute_script("document.getElementById('btnWatchAd').click();")
+            # ĐÂY LÀ CHÂN LÝ: Đâm thẳng vào tim server, gọi API nhận thưởng mà không cần bật SDK quảng cáo!
+            driver.execute_script("apiPost('/api/task-watchad');")
             
-            # Chờ đúng 2.5s cho SDK nó bung hết form ẩn/iframe ra
-            time.sleep(4) 
+            # Chờ 3 giây cho máy chủ nó ngu ngơ cập nhật database
+            time.sleep(3) 
             
-            # Tung đòn chí mạng: Ép click phần cứng qua CDP (Bypass 100% chống gian lận)
-            logger("Tung trick lỏ: Mô phỏng click vật lý cấp độ phần cứng...", "INFO")
-            try:
-                # Tọa độ chính giữa màn hình (Kích thước cửa sổ đang set là 450x900)
-                click_x = 225
-                click_y = 450
-                
-                # Giả lập thao tác đè chuột trái xuống
-                driver.execute_cdp_cmd('Input.dispatchMouseEvent', {
-                    'type': 'mousePressed',
-                    'x': click_x,
-                    'y': click_y,
-                    'button': 'left',
-                    'clickCount': 1
-                })
-                time.sleep(0.1) # Độ trễ như người thật bấm
-                # Giả lập thao tác nhả chuột trái lên
-                driver.execute_cdp_cmd('Input.dispatchMouseEvent', {
-                    'type': 'mouseReleased',
-                    'x': click_x,
-                    'y': click_y,
-                    'button': 'left',
-                    'clickCount': 1
-                })
-            except Exception as e:
-                logger(f"Lỗi khi click phần cứng: {e}", "ERROR")
-            
-            # Chờ thêm 4s cho máy chủ game kịp nhận lệnh cộng tiền
-            time.sleep(4) 
+            # Gọi hàm hệ thống của game để tải lại giao diện, cập nhật số dư mới
+            driver.execute_script("initAppSystem(false);")
+            time.sleep(2)
             
             try: driver.execute_script("closeCustomAlert();")
             except: pass
             
-            time.sleep(2) # Chờ giao diện update số dư
             ore_after = check_ore_balance(driver)
             profit = ore_after - ore_before
             if profit > 0:
-                logger(f"Bú đẫm QC siêu tốc! Lãi ròng: +{profit} Quặng (Tổng tài sản: {ore_after})", "SUCCESS")
+                logger(f"Hack API QC thành công! Bú đẫm: +{profit} Quặng (Tổng tài sản: {ore_after})", "SUCCESS")
+                
+                # Hack xong thì khóa cái nút lại để khỏi gọi nhầm lần 2
+                driver.execute_script("document.getElementById('btnWatchAd').disabled = true;")
             else:
-                logger(f"Vẫn móm QC! (Lãi 0). Hãy kiểm tra lại. Tổng: {ore_after}", "ERROR")
+                logger(f"Hack xịt! Dev nó vừa khóa cửa sau (Lãi 0). Tổng: {ore_after}", "ERROR")
         else:
-            logger("QC đang chờ hồi chiêu (Hoặc đã xem hết).", "WARNING")
+            logger("QC đang chờ hồi chiêu (Hoặc đã hack xong rồi).", "WARNING")
 
     except Exception as e:
         logger(f"Lỗi khi làm nhiệm vụ: {str(e)}", "ERROR")
