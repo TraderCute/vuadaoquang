@@ -81,43 +81,67 @@ def do_daily_tasks(driver):
             ore_before = check_ore_balance(driver)
             driver.execute_script("document.getElementById('btnCheckin').click();")
             time.sleep(2)
-            try:
-                driver.execute_script("closeCustomAlert();")
+            try: driver.execute_script("closeCustomAlert();")
             except: pass
             
-            time.sleep(1) # Chờ giao diện nhảy số
+            time.sleep(2) 
             ore_after = check_ore_balance(driver)
-            profit = ore_after - ore_before
-            logger(f"Đã điểm danh thành công! Thu nhập: +{profit} Quặng (Tổng tài sản: {ore_after})", "SUCCESS")
+            logger(f"Đã điểm danh thành công! Lãi ròng: +{ore_after - ore_before} Quặng (Tổng: {ore_after})", "SUCCESS")
         else:
             logger("Hôm nay đã điểm danh rồi.", "WARNING")
 
-        # 2. Xem Quảng Cáo (Trick Lỏ Click Siêu Tốc)
+        # 2. Xem Quảng Cáo (Trick Lỏ Click Cấp Độ Phần Cứng)
         logger("Đang tìm nút Xem Quảng Cáo...", "TIME")
         is_ad_ready = driver.execute_script("return !document.getElementById('btnWatchAd').disabled;")
         if is_ad_ready:
             ore_before = check_ore_balance(driver)
             logger(f"Phát hiện mỏ QC! (Đang có: {ore_before} Quặng). Đang bật video...", "SUCCESS")
+            
             driver.execute_script("document.getElementById('btnWatchAd').click();")
             
-            time.sleep(1.5) 
+            # Chờ đúng 2.5s cho SDK nó bung hết form ẩn/iframe ra
+            time.sleep(2.5) 
             
-            logger("Tung trick lỏ: Click bừa để bypass quảng cáo...", "INFO")
+            # Tung đòn chí mạng: Ép click phần cứng qua CDP (Bypass 100% chống gian lận)
+            logger("Tung trick lỏ: Mô phỏng click vật lý cấp độ phần cứng...", "INFO")
             try:
-                ActionChains(driver).move_by_offset(100, 100).click().perform()
-            except Exception:
-                driver.execute_script("document.body.click();")
+                # Tọa độ chính giữa màn hình (Kích thước cửa sổ đang set là 450x900)
+                click_x = 225
+                click_y = 450
+                
+                # Giả lập thao tác đè chuột trái xuống
+                driver.execute_cdp_cmd('Input.dispatchMouseEvent', {
+                    'type': 'mousePressed',
+                    'x': click_x,
+                    'y': click_y,
+                    'button': 'left',
+                    'clickCount': 1
+                })
+                time.sleep(0.1) # Độ trễ như người thật bấm
+                # Giả lập thao tác nhả chuột trái lên
+                driver.execute_cdp_cmd('Input.dispatchMouseEvent', {
+                    'type': 'mouseReleased',
+                    'x': click_x,
+                    'y': click_y,
+                    'button': 'left',
+                    'clickCount': 1
+                })
+            except Exception as e:
+                logger(f"Lỗi khi click phần cứng: {e}", "ERROR")
             
-            time.sleep(3) 
+            # Chờ thêm 4s cho máy chủ game kịp nhận lệnh cộng tiền
+            time.sleep(4) 
             
-            try:
-                driver.execute_script("closeCustomAlert();")
+            try: driver.execute_script("closeCustomAlert();")
             except: pass
             
-            time.sleep(1) # Chờ giao diện nhảy số
+            time.sleep(2) # Chờ giao diện update số dư
             ore_after = check_ore_balance(driver)
             profit = ore_after - ore_before
-            logger(f"Bú đẫm QC siêu tốc! Lãi ròng: +{profit} Quặng (Tổng tài sản: {ore_after})", "SUCCESS")
+            if profit > 0:
+                logger(f"Bú đẫm QC siêu tốc! Lãi ròng: +{profit} Quặng (Tổng tài sản: {ore_after})", "SUCCESS")
+            else:
+                logger(f"Vẫn móm QC! (Lãi 0). Hãy kiểm tra lại. Tổng: {ore_after}", "ERROR")
         else:
             logger("QC đang chờ hồi chiêu (Hoặc đã xem hết).", "WARNING")
 
