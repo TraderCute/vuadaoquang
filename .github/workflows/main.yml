@@ -24,7 +24,7 @@ jobs:
           pip install selenium telethon
 
       - name: Ngủ 30 giây để tránh Rate Limit của Telegram
-        run: sleep 120s
+        run: sleep 1s
         
       - name: Chạy Script Đào Quặng
         env:
