@@ -1,5 +1,6 @@
 import os
 import time
+import json
 import traceback
 from datetime import datetime
 from selenium import webdriver
@@ -16,6 +17,13 @@ TG_SESSION = os.environ.get("TG_SESSION", "chuoi_string_session_cua_ong_vao_day"
 
 BOT_USERNAME = 'VuaDaoQuang_Bot' 
 WEBAPP_URL = 'https://vdq.builderminiapp.online/'
+
+# ================= BỘ NHỚ KẾ TOÁN (MỚI THÊM) =================
+bot_stats = {
+    "checkin_profit": 0,
+    "ad_profit": 0,
+    "mining_profit": 0
+}
 
 # ================= MÔ-ĐUN LẤY LINK TỰ ĐỘNG =================
 def get_fresh_target_url():
@@ -63,7 +71,6 @@ def setup_driver():
 # ================= KẾ TOÁN TRƯỞNG: SOI TÀI KHOẢN =================
 def check_ore_balance(driver):
     try:
-        # Lấy text từ phần tử topBalance trên giao diện, lọc bỏ dấu phẩy/chấm để biến thành số
         bal = driver.execute_script("return document.getElementById('topBalance').innerText;")
         if bal:
             return int(bal.replace(',', '').replace('.', '').strip())
@@ -71,12 +78,43 @@ def check_ore_balance(driver):
     except:
         return 0
 
-# ================= MÔ-ĐUN CÀY NHIỆM VỤ HÀNG NGÀY (BẢN HACK CỬA SAU) =================
+# ================= MÔ-ĐUN GHI SỔ DATABASE (MỚI THÊM) =================
+def save_database():
+    global bot_stats
+    today = datetime.now().strftime("%Y-%m-%d")
+    db_file = "database.json"
+    
+    # 1. Đọc sổ cũ (nếu có)
+    try:
+        with open(db_file, "r") as f:
+            db = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        db = {}
+        
+    # 2. Tạo trang mới cho ngày hôm nay
+    if today not in db:
+        db[today] = {"runs": 0, "total_profit": 0, "ad_profit": 0, "mining_profit": 0}
+        
+    # 3. Tính tổng lãi ca này
+    profit = bot_stats["checkin_profit"] + bot_stats["ad_profit"] + bot_stats["mining_profit"]
+    
+    # 4. Cộng dồn số liệu
+    db[today]["runs"] += 1
+    db[today]["total_profit"] += profit
+    db[today]["ad_profit"] += bot_stats["ad_profit"]
+    db[today]["mining_profit"] += bot_stats["mining_profit"]
+    
+    # 5. Lưu đè ra file
+    with open(db_file, "w") as f:
+        json.dump(db, f, indent=4)
+    
+    logger(f"💾 Đã chốt sổ Kế toán vào File 'database.json'. Lãi ca này: +{profit} Quặng", "SUCCESS")
+
+# ================= MÔ-ĐUN CÀY NHIỆM VỤ HÀNG NGÀY =================
 def do_daily_tasks(driver):
+    global bot_stats
     logger("🎁 Bắt đầu càn quét nhiệm vụ hàng ngày...", "INFO")
     try:
-        # 1. Điểm Danh
-        logger("Đang kiểm tra sổ Điểm danh...", "TIME")
         is_checked_in = driver.execute_script("return document.getElementById('btnCheckin').disabled;")
         if not is_checked_in:
             ore_before = check_ore_balance(driver)
@@ -87,24 +125,19 @@ def do_daily_tasks(driver):
             
             time.sleep(2) 
             ore_after = check_ore_balance(driver)
-            logger(f"Đã điểm danh thành công! Lãi ròng: +{ore_after - ore_before} Quặng (Tổng: {ore_after})", "SUCCESS")
+            profit = ore_after - ore_before
+            bot_stats["checkin_profit"] = profit # Lưu vào bộ nhớ
+            logger(f"Đã điểm danh thành công! Lãi ròng: +{profit} Quặng (Tổng: {ore_after})", "SUCCESS")
         else:
             logger("Hôm nay đã điểm danh rồi.", "WARNING")
 
-        # 2. Xem Quảng Cáo (ĐÒN HACK API: XUYÊN THỦNG HỆ THỐNG)
-        logger("Đang tìm mỏ Quảng Cáo...", "TIME")
         is_ad_ready = driver.execute_script("return !document.getElementById('btnWatchAd').disabled;")
         if is_ad_ready:
             ore_before = check_ore_balance(driver)
-            logger(f"Phát hiện QC! (Đang có: {ore_before} Quặng). Bỏ qua Video, tung đòn Hack API...", "SUCCESS")
+            logger(f"Phát hiện QC! (Đang có: {ore_before} Quặng). Tung đòn Hack API...", "SUCCESS")
             
-            # ĐÂY LÀ CHÂN LÝ: Đâm thẳng vào tim server, gọi API nhận thưởng mà không cần bật SDK quảng cáo!
             driver.execute_script("apiPost('/api/task-watchad');")
-            
-            # Chờ 3 giây cho máy chủ nó ngu ngơ cập nhật database
             time.sleep(3) 
-            
-            # Gọi hàm hệ thống của game để tải lại giao diện, cập nhật số dư mới
             driver.execute_script("initAppSystem(false);")
             time.sleep(2)
             
@@ -114,118 +147,96 @@ def do_daily_tasks(driver):
             ore_after = check_ore_balance(driver)
             profit = ore_after - ore_before
             if profit > 0:
-                logger(f"Hack API QC thành công! Bú đẫm: +{profit} Quặng (Tổng tài sản: {ore_after})", "SUCCESS")
-                
-                # Hack xong thì khóa cái nút lại để khỏi gọi nhầm lần 2
+                bot_stats["ad_profit"] = profit # Lưu vào bộ nhớ
+                logger(f"Hack API QC thành công! Bú đẫm: +{profit} Quặng", "SUCCESS")
                 driver.execute_script("document.getElementById('btnWatchAd').disabled = true;")
             else:
-                logger(f"Hack xịt! Dev nó vừa khóa cửa sau (Lãi 0). Tổng: {ore_after}", "ERROR")
+                logger(f"Hack xịt! Lãi 0.", "ERROR")
         else:
-            logger("QC đang chờ hồi chiêu (Hoặc đã hack xong rồi).", "WARNING")
+            logger("QC đang chờ hồi chiêu.", "WARNING")
 
     except Exception as e:
         logger(f"Lỗi khi làm nhiệm vụ: {str(e)}", "ERROR")
 
-# ================= MÔ-ĐUN QUẢN LÝ HẦM MỎ (CHECK THỜI GIAN) =================
+# ================= MÔ-ĐUN QUẢN LÝ HẦM MỎ =================
 def manage_mining(driver):
+    global bot_stats
     print("\n" + "="*40)
     print(" BÁO CÁO TÌNH TRẠNG HẦM MỎ")
     print("="*40)
     try:
-        # 1. Kiểm tra trạng thái máy đang tắt
         is_inactive = driver.execute_script("return document.getElementById('miningNotActiveView').style.display !== 'none';")
-        
         if is_inactive:
             logger("Máy đào đang tắt. Kích hoạt khởi động...", "WARNING")
             driver.execute_script("document.getElementById('btnStartMining').click();")
             time.sleep(3)
-            try:
-                driver.execute_script("closeCustomAlert();")
-            except:
-                pass
-            logger("Đã khởi động máy đào thành công!", "SUCCESS")
+            try: driver.execute_script("closeCustomAlert();")
+            except: pass
             return
 
-        # 2. Kiểm tra trạng thái máy đang chạy
         is_active = driver.execute_script("return document.getElementById('miningActiveView').style.display !== 'none';")
-        
         if is_active:
             countdown = driver.execute_script("return document.getElementById('miningCountdown').innerText.trim();")
-            logger(f"Trạng thái: Đang đào (Thời gian còn lại: {countdown})", "INFO")
             
-            # Phân tích thời gian đếm ngược
             total_mins = 999
             if "ĐẦY" in countdown.upper() or countdown == "00:00:00":
                 total_mins = 0
             else:
                 try:
                     parts = countdown.split(':')
-                    if len(parts) == 3: # Định dạng HH:MM:SS
-                        total_mins = int(parts[0]) * 60 + int(parts[1])
-                    elif len(parts) == 2: # Định dạng MM:SS
-                        total_mins = int(parts[0])
-                except:
-                    pass
+                    if len(parts) == 3: total_mins = int(parts[0]) * 60 + int(parts[1])
+                    elif len(parts) == 2: total_mins = int(parts[0])
+                except: pass
             
-            # Chỉ thu hoạch khi còn <= 10 phút hoặc đã đầy
             if total_mins <= 10:
                 ore_before = check_ore_balance(driver)
-                logger(f"Đã đến thời điểm thu hoạch. Tiến hành lấy quặng... (Đang có: {ore_before})", "SUCCESS")
-                
                 driver.execute_script("document.getElementById('btnClaim').click();")
                 time.sleep(3)
-                try:
-                    driver.execute_script("closeCustomAlert();")
-                except:
-                    pass
+                try: driver.execute_script("closeCustomAlert();")
+                except: pass
                 
                 time.sleep(2) 
                 ore_after = check_ore_balance(driver)
                 profit = ore_after - ore_before
-                logger(f"Thu hoạch hoàn tất! Lãi ròng: +{profit} Quặng (Tổng: {ore_after})", "SUCCESS")
+                bot_stats["mining_profit"] = profit # Lưu vào bộ nhớ
+                logger(f"Thu hoạch hoàn tất! Lãi ròng: +{profit} Quặng", "SUCCESS")
                 
-                # Bật lại máy ngay lập tức để chạy ca mới
-                logger("Khởi động lại máy đào...", "INFO")
                 driver.execute_script("document.getElementById('btnStartMining').click();")
                 time.sleep(3)
-                try:
-                    driver.execute_script("closeCustomAlert();")
-                except:
-                    pass
+                try: driver.execute_script("closeCustomAlert();")
+                except: pass
             else:
-                logger(f"Chưa đến giờ thu hoạch (còn > 10 phút). Bỏ qua để máy tiếp tục chạy.", "WARNING")
-
+                logger(f"Chưa đến giờ thu hoạch. Bỏ qua.", "WARNING")
     except Exception as e:
         logger(f"Lỗi quản lý hầm mỏ: {str(e)}", "ERROR")
     print("="*40 + "\n")
+
 # ================= ĐÒN ĐÁNH TỔNG HỢP =================
 def main():
-    logger("🚀 KHỞI ĐỘNG HỆ THỐNG AUTO ĐÀO QUẶNG V3.0 (KẾ TOÁN TRƯỞNG)", "SUCCESS")
+    logger("🚀 KHỞI ĐỘNG HỆ THỐNG AUTO ĐÀO QUẶNG V3.0 (CÓ KẾ TOÁN LƯU FILE)", "SUCCESS")
     target_url = get_fresh_target_url()
     if not target_url:
-        logger("Không lấy được URL, dừng hệ thống!", "ERROR")
         return
         
     driver = setup_driver()
     try:
         driver.get(target_url)
-        logger("Chờ 10s để máy chủ đồng bộ dữ liệu...", "TIME")
         time.sleep(10) 
         
         do_daily_tasks(driver)
         manage_mining(driver)
         
-        logger("🎉 HOÀN TẤT CHU TRÌNH! Hẹn gặp lại vào ca trực tiếp theo.", "SUCCESS")
+        # CHỐT SỔ VÀO DATABASE.JSON TẠI ĐÂY 👇
+        save_database()
+        
+        logger("🎉 HOÀN TẤT CHU TRÌNH!", "SUCCESS")
         
     except Exception as err:
         logger(f"Lỗi hệ thống: {str(err)}", "ERROR")
         traceback.print_exc()
     finally:
-        logger("🛑 Tự động đóng trình duyệt và rút êm...", "INFO")
-        try:
-            driver.quit()
-        except:
-            pass
+        try: driver.quit()
+        except: pass
 
 if __name__ == "__main__":
     main()
