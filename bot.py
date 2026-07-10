@@ -80,9 +80,15 @@ def check_ore_balance(driver):
 
 # ================= MÔ-ĐUN GHI SỔ DATABASE (MỚI THÊM) =================
 def save_database():
+    def save_database():
     global bot_stats
-    today = datetime.now().strftime("%Y-%m-%d")
+    
+    # Thiết lập múi giờ Việt Nam
+    vn_tz = timezone(timedelta(hours=7))
+    today = datetime.now(vn_tz).strftime("%Y-%m-%d")
+    
     db_file = "database.json"
+    # ... (giữ nguyên phần code đọc/ghi database bên dưới)
     
     # 1. Đọc sổ cũ (nếu có)
     try:
