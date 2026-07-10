@@ -2,7 +2,7 @@ import os
 import time
 import json
 import traceback
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
 
@@ -80,7 +80,6 @@ def check_ore_balance(driver):
 
 # ================= MÔ-ĐUN GHI SỔ DATABASE (MỚI THÊM) =================
 def save_database():
-    def save_database():
     global bot_stats
     
     # Thiết lập múi giờ Việt Nam
@@ -88,7 +87,6 @@ def save_database():
     today = datetime.now(vn_tz).strftime("%Y-%m-%d")
     
     db_file = "database.json"
-    # ... (giữ nguyên phần code đọc/ghi database bên dưới)
     
     # 1. Đọc sổ cũ (nếu có)
     try:
