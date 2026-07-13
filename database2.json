@@ -16,5 +16,11 @@
         "total_profit": 14954,
         "ad_profit": 14954,
         "mining_profit": 0
+    },
+    "2026-07-14": {
+        "runs": 1,
+        "total_profit": 154,
+        "ad_profit": 154,
+        "mining_profit": 0
     }
 }
