@@ -24,9 +24,9 @@
         "mining_profit": 0
     },
     "2026-07-15": {
-        "runs": 2,
-        "total_profit": 161,
-        "ad_profit": 161,
+        "runs": 3,
+        "total_profit": 263,
+        "ad_profit": 263,
         "mining_profit": 0
     }
 }
