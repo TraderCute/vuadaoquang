@@ -24,6 +24,11 @@
                 "balance": 2359,
                 "profit": 491,
                 "last_update": "22:07:07"
+            },
+            "Ch\u1ee7 Tr\u1ea1i 1": {
+                "balance": 947,
+                "profit": 0,
+                "last_update": "22:56:40"
             }
         },
         "happyfarm": {
@@ -33,9 +38,9 @@
                 "last_update": "22:53:09"
             },
             "N\u00f4ng D\u00e2n 1": {
-                "balance": 330040,
+                "balance": 325240,
                 "profit": 2400,
-                "last_update": "22:56:09"
+                "last_update": "22:26:05"
             }
         }
     }
