@@ -61,9 +61,14 @@
         },
         "vuadaoquang": {
             "Th\u1ee3 M\u1ecf 1 (Ch\u00ednh)": {
-                "balance": 49343,
-                "profit": 224,
-                "last_update": "00:53:40"
+                "balance": 49238,
+                "profit": 105,
+                "last_update": "00:43:16"
+            },
+            "Th\u1ee3 M\u1ecf 2 (Ph\u1ee5)": {
+                "balance": 29111,
+                "profit": 96,
+                "last_update": "00:53:42"
             }
         }
     }
