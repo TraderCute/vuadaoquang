@@ -9,9 +9,9 @@
         },
         "farmcoin": {
             "N\u00f4ng D\u00e2n 1": {
-                "balance": 145273,
+                "balance": 145893,
                 "profit": 0,
-                "last_update": "18:42:47"
+                "last_update": "21:37:10"
             }
         },
         "trangtraimmo": {
@@ -19,13 +19,6 @@
                 "balance": 2699,
                 "profit": 490,
                 "last_update": "21:29:43"
-            }
-        },
-        "happyfarm": {
-            "N\u00f4ng D\u00e2n 2": {
-                "balance": 111280,
-                "profit": 0,
-                "last_update": "21:37:09"
             }
         }
     }
