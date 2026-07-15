@@ -17,6 +17,11 @@
                 "balance": 145273,
                 "profit": 0,
                 "last_update": "18:42:47"
+            },
+            "N\u00f4ng D\u00e2n 2": {
+                "balance": 97095,
+                "profit": 723,
+                "last_update": "23:54:54"
             }
         },
         "trangtraimmo": {
@@ -24,11 +29,6 @@
                 "balance": 2359,
                 "profit": 491,
                 "last_update": "22:07:07"
-            },
-            "Ch\u1ee7 Tr\u1ea1i 1": {
-                "balance": 1190,
-                "profit": 0,
-                "last_update": "23:54:07"
             }
         },
         "happyfarm": {
