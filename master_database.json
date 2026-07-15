@@ -54,9 +54,9 @@
         },
         "trangtraimmo": {
             "Ch\u1ee7 Tr\u1ea1i 2": {
-                "balance": 3731,
-                "profit": 443,
-                "last_update": "04:26:23"
+                "balance": 3645,
+                "profit": 357,
+                "last_update": "03:56:02"
             },
             "Ch\u1ee7 Tr\u1ea1i 1": {
                 "balance": 1539,
@@ -74,6 +74,13 @@
                 "balance": 29889,
                 "profit": 370,
                 "last_update": "02:37:43"
+            }
+        },
+        "farmcoin": {
+            "N\u00f4ng D\u00e2n 2": {
+                "balance": 100239,
+                "profit": 693,
+                "last_update": "04:26:52"
             }
         }
     }
