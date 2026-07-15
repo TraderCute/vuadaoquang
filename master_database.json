@@ -5,6 +5,11 @@
                 "balance": 47823,
                 "profit": 0,
                 "last_update": "17:56:12"
+            },
+            "Th\u1ee3 M\u1ecf 2 (Ph\u1ee5)": {
+                "balance": 34555,
+                "profit": 92,
+                "last_update": "21:48:33"
             }
         },
         "farmcoin": {
@@ -26,11 +31,6 @@
                 "balance": 144880,
                 "profit": 33600,
                 "last_update": "21:41:00"
-            },
-            "N\u00f4ng D\u00e2n 1": {
-                "balance": 319330,
-                "profit": 5850,
-                "last_update": "21:45:43"
             }
         }
     }
