@@ -57,6 +57,11 @@
                 "balance": 3055,
                 "profit": 287,
                 "last_update": "01:30:54"
+            },
+            "Ch\u1ee7 Tr\u1ea1i 1": {
+                "balance": 1532,
+                "profit": 0,
+                "last_update": "03:08:43"
             }
         },
         "vuadaoquang": {
@@ -66,9 +71,9 @@
                 "last_update": "02:18:40"
             },
             "Th\u1ee3 M\u1ecf 2 (Ph\u1ee5)": {
-                "balance": 30077,
-                "profit": 478,
-                "last_update": "03:08:40"
+                "balance": 29889,
+                "profit": 370,
+                "last_update": "02:37:43"
             }
         }
     }
