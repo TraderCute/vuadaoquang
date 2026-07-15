@@ -57,11 +57,13 @@
                 "balance": 2225,
                 "profit": 0,
                 "last_update": "00:22:28"
-            },
-            "Ch\u1ee7 Tr\u1ea1i 1": {
-                "balance": 1349,
-                "profit": 0,
-                "last_update": "00:40:18"
+            }
+        },
+        "vuadaoquang": {
+            "Th\u1ee3 M\u1ecf 2 (Ph\u1ee5)": {
+                "balance": 28978,
+                "profit": 73,
+                "last_update": "00:41:24"
             }
         }
     }
