@@ -57,6 +57,11 @@
                 "balance": 3055,
                 "profit": 287,
                 "last_update": "01:30:54"
+            },
+            "Ch\u1ee7 Tr\u1ea1i 1": {
+                "balance": 1539,
+                "profit": 0,
+                "last_update": "03:19:21"
             }
         },
         "vuadaoquang": {
@@ -69,13 +74,6 @@
                 "balance": 29889,
                 "profit": 370,
                 "last_update": "02:37:43"
-            }
-        },
-        "farmcoin": {
-            "N\u00f4ng D\u00e2n 1": {
-                "balance": 186153,
-                "profit": 930,
-                "last_update": "03:18:36"
             }
         }
     }
