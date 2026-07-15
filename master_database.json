@@ -24,11 +24,6 @@
                 "balance": 2359,
                 "profit": 491,
                 "last_update": "22:07:07"
-            },
-            "Ch\u1ee7 Tr\u1ea1i 1": {
-                "balance": 1288,
-                "profit": 98,
-                "last_update": "23:59:26"
             }
         },
         "happyfarm": {
@@ -41,6 +36,15 @@
                 "balance": 336790,
                 "profit": 7200,
                 "last_update": "23:44:30"
+            }
+        }
+    },
+    "2026-07-16": {
+        "farmcoin": {
+            "N\u00f4ng D\u00e2n 1": {
+                "balance": 183760,
+                "profit": 1163,
+                "last_update": "00:00:07"
             }
         }
     }
