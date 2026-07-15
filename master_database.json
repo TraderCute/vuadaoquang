@@ -47,9 +47,9 @@
                 "last_update": "05:23:49"
             },
             "N\u00f4ng D\u00e2n 2": {
-                "balance": 227120,
-                "profit": 12000,
-                "last_update": "05:16:48"
+                "balance": 229520,
+                "profit": 14400,
+                "last_update": "05:29:37"
             }
         },
         "trangtraimmo": {
@@ -74,13 +74,6 @@
                 "balance": 30834,
                 "profit": 454,
                 "last_update": "05:05:58"
-            }
-        },
-        "farmcoin": {
-            "N\u00f4ng D\u00e2n 2": {
-                "balance": 100860,
-                "profit": 621,
-                "last_update": "05:29:03"
             }
         }
     }
