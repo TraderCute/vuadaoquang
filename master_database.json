@@ -122,6 +122,13 @@
                 "profit": 7,
                 "last_update": "01:00:05"
             }
+        },
+        "vuadaoquang": {
+            "Th\u1ee3 M\u1ecf 2 (Ph\u1ee5)": {
+                "balance": 42729,
+                "profit": 156,
+                "last_update": "01:05:29"
+            }
         }
     }
 }
