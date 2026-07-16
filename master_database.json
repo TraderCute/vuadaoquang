@@ -44,7 +44,7 @@
             "N\u00f4ng D\u00e2n 1": {
                 "balance": 4730,
                 "profit": 22205,
-                "last_update": "23:59:50"
+                "last_update": "23:55:28"
             },
             "N\u00f4ng D\u00e2n 2": {
                 "balance": 7290,
@@ -93,6 +93,15 @@
                 "balance": 0,
                 "profit": 151000,
                 "last_update": "23:23:53"
+            }
+        }
+    },
+    "2026-07-17": {
+        "happyfarm": {
+            "N\u00f4ng D\u00e2n 2": {
+                "balance": 7290,
+                "profit": 0,
+                "last_update": "00:00:10"
             }
         }
     }
