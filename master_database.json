@@ -106,7 +106,7 @@
             "N\u00f4ng D\u00e2n 1": {
                 "balance": 3690,
                 "profit": 0,
-                "last_update": "00:51:47"
+                "last_update": "01:00:56"
             }
         },
         "farmcoin": {
@@ -121,13 +121,6 @@
                 "balance": 1143,
                 "profit": 7,
                 "last_update": "01:00:05"
-            }
-        },
-        "khobaurong": {
-            "Chi\u1ebfn Binh R\u1ed3ng": {
-                "balance": 0,
-                "profit": 2000,
-                "last_update": "01:00:27"
             }
         }
     }
