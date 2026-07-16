@@ -101,12 +101,19 @@
             "N\u00f4ng D\u00e2n 2": {
                 "balance": 5170,
                 "profit": 0,
-                "last_update": "00:31:37"
+                "last_update": "00:19:42"
             },
             "N\u00f4ng D\u00e2n 1": {
                 "balance": 3690,
                 "profit": 0,
                 "last_update": "00:29:58"
+            }
+        },
+        "vuadaoquang": {
+            "Th\u1ee3 M\u1ecf 2 (Ph\u1ee5)": {
+                "balance": 42301,
+                "profit": 202,
+                "last_update": "00:33:45"
             }
         }
     }
