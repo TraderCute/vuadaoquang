@@ -106,7 +106,7 @@
             "N\u00f4ng D\u00e2n 1": {
                 "balance": 3690,
                 "profit": 0,
-                "last_update": "00:43:12"
+                "last_update": "00:29:58"
             }
         },
         "farmcoin": {
@@ -114,6 +114,13 @@
                 "balance": 160574,
                 "profit": 348,
                 "last_update": "00:40:39"
+            }
+        },
+        "vuadaoquang": {
+            "Th\u1ee3 M\u1ecf 1 (Ch\u00ednh)": {
+                "balance": 60511,
+                "profit": 224,
+                "last_update": "00:45:52"
             }
         }
     }
