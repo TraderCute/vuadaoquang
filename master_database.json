@@ -118,9 +118,9 @@
         },
         "trangtraimmo": {
             "Ch\u1ee7 Tr\u1ea1i 1": {
-                "balance": 1341,
-                "profit": 21,
-                "last_update": "03:02:53"
+                "balance": 1258,
+                "profit": 14,
+                "last_update": "02:04:41"
             },
             "Ch\u1ee7 Tr\u1ea1i 2": {
                 "balance": 6563,
@@ -135,9 +135,9 @@
                 "last_update": "02:12:20"
             },
             "Th\u1ee3 M\u1ecf 2 (Ph\u1ee5)": {
-                "balance": 43189,
-                "profit": 228,
-                "last_update": "01:46:53"
+                "balance": 44321,
+                "profit": 406,
+                "last_update": "03:04:15"
             }
         }
     }
