@@ -114,6 +114,11 @@
                 "balance": 160574,
                 "profit": 348,
                 "last_update": "00:40:39"
+            },
+            "N\u00f4ng D\u00e2n 1": {
+                "balance": 274379,
+                "profit": 722,
+                "last_update": "04:38:19"
             }
         },
         "trangtraimmo": {
@@ -135,9 +140,9 @@
                 "last_update": "02:12:20"
             },
             "Th\u1ee3 M\u1ecf 2 (Ph\u1ee5)": {
-                "balance": 45502,
-                "profit": 652,
-                "last_update": "04:36:43"
+                "balance": 45066,
+                "profit": 430,
+                "last_update": "04:02:56"
             }
         }
     }
