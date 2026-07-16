@@ -103,6 +103,13 @@
                 "profit": 0,
                 "last_update": "00:00:10"
             }
+        },
+        "trangtraimmo": {
+            "Ch\u1ee7 Tr\u1ea1i 1": {
+                "balance": 1025,
+                "profit": 7,
+                "last_update": "00:01:49"
+            }
         }
     }
 }
