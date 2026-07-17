@@ -123,9 +123,9 @@
         },
         "trangtraimmo": {
             "Ch\u1ee7 Tr\u1ea1i 1": {
-                "balance": 1432,
-                "profit": 35,
-                "last_update": "07:31:12"
+                "balance": 1502,
+                "profit": 42,
+                "last_update": "10:55:12"
             },
             "Ch\u1ee7 Tr\u1ea1i 2": {
                 "balance": 6428,
@@ -148,8 +148,8 @@
         "khobaurong": {
             "Chi\u1ebfn Binh R\u1ed3ng": {
                 "balance": 0,
-                "profit": 593000,
-                "last_update": "10:53:37"
+                "profit": 445000,
+                "last_update": "10:37:57"
             }
         }
     }
