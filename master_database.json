@@ -168,9 +168,14 @@
         },
         "vuadaoquang": {
             "Th\u1ee3 M\u1ecf 1 (Ch\u00ednh)": {
-                "balance": 60588,
-                "profit": 380,
-                "last_update": "01:37:56"
+                "balance": 59479,
+                "profit": 210,
+                "last_update": "00:06:49"
+            },
+            "Th\u1ee3 M\u1ecf 2 (Ph\u1ee5)": {
+                "balance": 64250,
+                "profit": 190,
+                "last_update": "01:38:53"
             }
         },
         "farmcoin": {
