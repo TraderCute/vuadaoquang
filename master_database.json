@@ -158,7 +158,7 @@
             "N\u00f4ng D\u00e2n 1": {
                 "balance": 15800,
                 "profit": 4800,
-                "last_update": "01:56:46"
+                "last_update": "01:52:36"
             },
             "N\u00f4ng D\u00e2n 2": {
                 "balance": 15535,
@@ -171,6 +171,11 @@
                 "balance": 59479,
                 "profit": 210,
                 "last_update": "00:06:49"
+            },
+            "Th\u1ee3 M\u1ecf 2 (Ph\u1ee5)": {
+                "balance": 64440,
+                "profit": 142,
+                "last_update": "01:57:25"
             }
         },
         "farmcoin": {
