@@ -123,9 +123,9 @@
                 "last_update": "07:31:12"
             },
             "Ch\u1ee7 Tr\u1ea1i 2": {
-                "balance": 6734,
-                "profit": 421,
-                "last_update": "08:48:29"
+                "balance": 6428,
+                "profit": 319,
+                "last_update": "07:23:57"
             }
         },
         "vuadaoquang": {
@@ -138,6 +138,13 @@
                 "balance": 47993,
                 "profit": 886,
                 "last_update": "07:48:44"
+            }
+        },
+        "khobaurong": {
+            "Chi\u1ebfn Binh R\u1ed3ng": {
+                "balance": 0,
+                "profit": 149000,
+                "last_update": "08:50:13"
             }
         }
     }
