@@ -114,6 +114,11 @@
                 "balance": 160574,
                 "profit": 348,
                 "last_update": "00:40:39"
+            },
+            "N\u00f4ng D\u00e2n 1": {
+                "balance": 322513,
+                "profit": 47210,
+                "last_update": "07:04:56"
             }
         },
         "trangtraimmo": {
@@ -130,9 +135,9 @@
         },
         "vuadaoquang": {
             "Th\u1ee3 M\u1ecf 1 (Ch\u00ednh)": {
-                "balance": 65983,
-                "profit": 834,
-                "last_update": "07:04:53"
+                "balance": 64314,
+                "profit": 618,
+                "last_update": "05:09:22"
             },
             "Th\u1ee3 M\u1ecf 2 (Ph\u1ee5)": {
                 "balance": 47419,
