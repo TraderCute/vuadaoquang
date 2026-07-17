@@ -130,21 +130,14 @@
         },
         "vuadaoquang": {
             "Th\u1ee3 M\u1ecf 1 (Ch\u00ednh)": {
-                "balance": 64314,
-                "profit": 618,
-                "last_update": "05:09:22"
+                "balance": 65983,
+                "profit": 834,
+                "last_update": "07:04:53"
             },
             "Th\u1ee3 M\u1ecf 2 (Ph\u1ee5)": {
                 "balance": 47419,
                 "profit": 646,
                 "last_update": "06:57:36"
-            }
-        },
-        "khobaurong": {
-            "Chi\u1ebfn Binh R\u1ed3ng": {
-                "balance": 0,
-                "profit": 149000,
-                "last_update": "07:01:53"
             }
         }
     }
