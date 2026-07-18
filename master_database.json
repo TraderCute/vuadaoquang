@@ -161,9 +161,9 @@
                 "last_update": "08:13:37"
             },
             "N\u00f4ng D\u00e2n 2": {
-                "balance": 134440,
-                "profit": 45465,
-                "last_update": "08:01:15"
+                "balance": 150440,
+                "profit": 49465,
+                "last_update": "08:17:45"
             }
         },
         "vuadaoquang": {
@@ -188,13 +188,6 @@
                 "balance": 179026,
                 "profit": 1493,
                 "last_update": "05:11:32"
-            }
-        },
-        "khobaurong": {
-            "Chi\u1ebfn Binh R\u1ed3ng": {
-                "balance": 0,
-                "profit": 101000,
-                "last_update": "08:17:40"
             }
         }
     }
