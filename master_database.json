@@ -203,7 +203,7 @@
             "N\u00f4ng D\u00e2n 1": {
                 "balance": 25890,
                 "profit": 23520,
-                "last_update": "01:37:42"
+                "last_update": "01:29:21"
             },
             "N\u00f4ng D\u00e2n 2": {
                 "balance": 27860,
@@ -223,6 +223,11 @@
                 "balance": 56512,
                 "profit": 790,
                 "last_update": "01:16:39"
+            },
+            "Th\u1ee3 M\u1ecf 2 (Ph\u1ee5)": {
+                "balance": 51601,
+                "profit": 112,
+                "last_update": "01:38:29"
             }
         }
     }
