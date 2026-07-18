@@ -201,9 +201,16 @@
     "2026-07-19": {
         "happyfarm": {
             "N\u00f4ng D\u00e2n 1": {
-                "balance": 59910,
+                "balance": 68010,
                 "profit": 23520,
-                "last_update": "00:04:53"
+                "last_update": "00:01:48"
+            }
+        },
+        "farmcoin": {
+            "N\u00f4ng D\u00e2n 1": {
+                "balance": 114871,
+                "profit": 970,
+                "last_update": "00:05:05"
             }
         }
     }
