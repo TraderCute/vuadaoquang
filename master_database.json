@@ -248,7 +248,7 @@
             "N\u00f4ng D\u00e2n 2": {
                 "balance": 248800,
                 "profit": 30000,
-                "last_update": "02:22:21"
+                "last_update": "02:18:57"
             },
             "N\u00f4ng D\u00e2n 1": {
                 "balance": 339975,
@@ -261,6 +261,13 @@
                 "balance": 106595,
                 "profit": 375,
                 "last_update": "01:49:16"
+            }
+        },
+        "farmcoin": {
+            "N\u00f4ng D\u00e2n 1": {
+                "balance": 231933,
+                "profit": 1057,
+                "last_update": "02:24:47"
             }
         }
     }
