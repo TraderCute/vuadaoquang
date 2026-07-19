@@ -248,7 +248,7 @@
             "N\u00f4ng D\u00e2n 2": {
                 "balance": 303660,
                 "profit": 30000,
-                "last_update": "04:00:17"
+                "last_update": "03:56:39"
             },
             "N\u00f4ng D\u00e2n 1": {
                 "balance": 26025,
@@ -273,6 +273,13 @@
                 "balance": 300169,
                 "profit": 838,
                 "last_update": "02:33:49"
+            }
+        },
+        "khobaurong": {
+            "Chi\u1ebfn Binh R\u1ed3ng": {
+                "balance": 0,
+                "profit": 2000,
+                "last_update": "04:01:01"
             }
         }
     }
