@@ -253,7 +253,7 @@
             "N\u00f4ng D\u00e2n 1": {
                 "balance": 339975,
                 "profit": 0,
-                "last_update": "02:11:14"
+                "last_update": "02:25:49"
             }
         },
         "vuadaoquang": {
@@ -261,13 +261,6 @@
                 "balance": 106595,
                 "profit": 375,
                 "last_update": "01:49:16"
-            }
-        },
-        "farmcoin": {
-            "N\u00f4ng D\u00e2n 1": {
-                "balance": 231933,
-                "profit": 1057,
-                "last_update": "02:24:47"
             }
         }
     }
