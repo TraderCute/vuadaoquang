@@ -345,6 +345,13 @@
                 "profit": 0,
                 "last_update": "01:14:51"
             }
+        },
+        "farmcoin": {
+            "N\u00f4ng D\u00e2n 1": {
+                "balance": 368652,
+                "profit": 995,
+                "last_update": "01:33:39"
+            }
         }
     }
 }
