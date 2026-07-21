@@ -296,9 +296,9 @@
                 "last_update": "23:55:50"
             },
             "N\u00f4ng D\u00e2n 1": {
-                "balance": 103610,
+                "balance": 103910,
                 "profit": 301550,
-                "last_update": "23:58:55"
+                "last_update": "23:51:02"
             }
         },
         "vuadaoquang": {
@@ -330,6 +330,15 @@
                 "balance": 0,
                 "profit": 708000,
                 "last_update": "13:18:25"
+            }
+        }
+    },
+    "2026-07-22": {
+        "happyfarm": {
+            "N\u00f4ng D\u00e2n 2": {
+                "balance": 15980,
+                "profit": 0,
+                "last_update": "00:00:11"
             }
         }
     }
