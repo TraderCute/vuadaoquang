@@ -374,9 +374,9 @@
                 "last_update": "08:03:24"
             },
             "N\u00f4ng D\u00e2n 1": {
-                "balance": 442150,
-                "profit": 391700,
-                "last_update": "07:57:07"
+                "balance": 448575,
+                "profit": 394770,
+                "last_update": "08:06:25"
             }
         },
         "farmcoin": {
@@ -389,13 +389,6 @@
                 "balance": 475354,
                 "profit": 33392,
                 "last_update": "07:06:22"
-            }
-        },
-        "khobaurong": {
-            "Chi\u1ebfn Binh R\u1ed3ng": {
-                "balance": 0,
-                "profit": 98000,
-                "last_update": "08:05:20"
             }
         }
     }
