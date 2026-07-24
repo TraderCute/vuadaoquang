@@ -402,9 +402,9 @@
     "2026-07-24": {
         "happyfarm": {
             "N\u00f4ng D\u00e2n 1": {
-                "balance": 84705,
+                "balance": 164025,
                 "profit": 171185,
-                "last_update": "07:32:55"
+                "last_update": "07:20:06"
             },
             "N\u00f4ng D\u00e2n 2": {
                 "balance": 274500,
@@ -434,6 +434,13 @@
                 "balance": 330,
                 "profit": 0,
                 "last_update": "02:07:15"
+            }
+        },
+        "khobaurong": {
+            "Chi\u1ebfn Binh R\u1ed3ng": {
+                "balance": 0,
+                "profit": 102000,
+                "last_update": "07:33:05"
             }
         }
     }
