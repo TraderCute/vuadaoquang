@@ -414,9 +414,9 @@
         },
         "farmcoin": {
             "N\u00f4ng D\u00e2n 1": {
-                "balance": 595519,
-                "profit": 56589,
-                "last_update": "07:10:10"
+                "balance": 535561,
+                "profit": 974,
+                "last_update": "00:22:44"
             },
             "N\u00f4ng D\u00e2n 2": {
                 "balance": 490316,
@@ -431,9 +431,9 @@
                 "last_update": "06:53:01"
             },
             "Ch\u1ee7 Tr\u1ea1i 2": {
-                "balance": 330,
-                "profit": 0,
-                "last_update": "02:07:15"
+                "balance": 191,
+                "profit": 170,
+                "last_update": "07:10:45"
             }
         }
     }
