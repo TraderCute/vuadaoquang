@@ -447,9 +447,9 @@
     "2026-07-25": {
         "happyfarm": {
             "N\u00f4ng D\u00e2n 2": {
-                "balance": 363566,
-                "profit": 448652,
-                "last_update": "15:07:12"
+                "balance": 44666,
+                "profit": 129752,
+                "last_update": "14:49:27"
             },
             "N\u00f4ng D\u00e2n 1": {
                 "balance": 329836,
@@ -469,6 +469,11 @@
                 "balance": 4119,
                 "profit": 190,
                 "last_update": "15:03:06"
+            },
+            "Ch\u1ee7 Tr\u1ea1i 1": {
+                "balance": 2656,
+                "profit": 59,
+                "last_update": "15:09:09"
             }
         }
     }
