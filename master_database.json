@@ -485,9 +485,9 @@
     "2026-07-26": {
         "vuadaoquang": {
             "Th\u1ee3 M\u1ecf 1 (Ch\u00ednh)": {
-                "balance": 408,
-                "profit": 1469,
-                "last_update": "02:57:26"
+                "balance": 149264,
+                "profit": 1288,
+                "last_update": "00:00:04"
             },
             "Th\u1ee3 M\u1ecf 2 (Ph\u1ee5)": {
                 "balance": 6500,
@@ -512,6 +512,11 @@
                 "balance": 1022,
                 "profit": 0,
                 "last_update": "00:57:17"
+            },
+            "Ch\u1ee7 Tr\u1ea1i 2": {
+                "balance": 35,
+                "profit": 0,
+                "last_update": "02:57:34"
             }
         }
     }
