@@ -449,7 +449,7 @@
             "N\u00f4ng D\u00e2n 2": {
                 "balance": 44666,
                 "profit": 129752,
-                "last_update": "15:02:41"
+                "last_update": "14:49:27"
             },
             "N\u00f4ng D\u00e2n 1": {
                 "balance": 329836,
@@ -462,6 +462,13 @@
                 "balance": 140823,
                 "profit": 609,
                 "last_update": "14:56:46"
+            }
+        },
+        "trangtraimmo": {
+            "Ch\u1ee7 Tr\u1ea1i 2": {
+                "balance": 4119,
+                "profit": 190,
+                "last_update": "15:03:06"
             }
         }
     }
