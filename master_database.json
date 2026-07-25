@@ -499,7 +499,7 @@
             "N\u00f4ng D\u00e2n 2": {
                 "balance": 126896,
                 "profit": 243990,
-                "last_update": "04:57:53"
+                "last_update": "04:53:18"
             },
             "N\u00f4ng D\u00e2n 1": {
                 "balance": 42668,
@@ -512,6 +512,11 @@
                 "balance": 1380,
                 "profit": 10,
                 "last_update": "04:37:52"
+            },
+            "Ch\u1ee7 Tr\u1ea1i 2": {
+                "balance": 35,
+                "profit": 0,
+                "last_update": "04:58:01"
             }
         }
     }
