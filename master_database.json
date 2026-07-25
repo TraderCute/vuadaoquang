@@ -490,9 +490,9 @@
                 "last_update": "06:42:25"
             },
             "Th\u1ee3 M\u1ecf 2 (Ph\u1ee5)": {
-                "balance": 11814,
-                "profit": 1734,
-                "last_update": "06:53:03"
+                "balance": 11616,
+                "profit": 1489,
+                "last_update": "06:33:13"
             }
         },
         "happyfarm": {
@@ -512,6 +512,11 @@
                 "balance": 1380,
                 "profit": 10,
                 "last_update": "04:37:52"
+            },
+            "Ch\u1ee7 Tr\u1ea1i 2": {
+                "balance": 1001,
+                "profit": 200,
+                "last_update": "06:53:39"
             }
         }
     }
