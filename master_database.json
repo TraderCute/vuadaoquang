@@ -509,14 +509,9 @@
         },
         "trangtraimmo": {
             "Ch\u1ee7 Tr\u1ea1i 1": {
-                "balance": 1022,
+                "balance": 1042,
                 "profit": 0,
-                "last_update": "00:57:17"
-            },
-            "Ch\u1ee7 Tr\u1ea1i 2": {
-                "balance": 7136,
-                "profit": 77,
-                "last_update": "01:43:34"
+                "last_update": "01:43:47"
             }
         }
     }
