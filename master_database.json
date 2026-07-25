@@ -447,21 +447,14 @@
     "2026-07-25": {
         "happyfarm": {
             "N\u00f4ng D\u00e2n 2": {
-                "balance": 294126,
-                "profit": 128752,
-                "last_update": "12:45:24"
+                "balance": 403846,
+                "profit": 238472,
+                "last_update": "12:49:31"
             },
             "N\u00f4ng D\u00e2n 1": {
                 "balance": 159746,
                 "profit": 8000,
                 "last_update": "12:40:02"
-            }
-        },
-        "vuadaoquang": {
-            "Th\u1ee3 M\u1ecf 2 (Ph\u1ee5)": {
-                "balance": 100262,
-                "profit": 0,
-                "last_update": "12:48:33"
             }
         }
     }
