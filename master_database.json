@@ -450,13 +450,11 @@
                 "balance": 124211,
                 "profit": 125252,
                 "last_update": "12:12:26"
-            }
-        },
-        "vuadaoquang": {
-            "Th\u1ee3 M\u1ecf 1 (Ch\u00ednh)": {
-                "balance": 137119,
-                "profit": 111,
-                "last_update": "12:14:49"
+            },
+            "N\u00f4ng D\u00e2n 1": {
+                "balance": 139856,
+                "profit": 0,
+                "last_update": "12:15:29"
             }
         }
     }
