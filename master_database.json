@@ -452,9 +452,16 @@
                 "last_update": "13:38:50"
             },
             "N\u00f4ng D\u00e2n 1": {
-                "balance": 325836,
+                "balance": 321836,
                 "profit": 24000,
-                "last_update": "14:03:35"
+                "last_update": "13:56:35"
+            }
+        },
+        "vuadaoquang": {
+            "Th\u1ee3 M\u1ecf 1 (Ch\u00ednh)": {
+                "balance": 140209,
+                "profit": 152,
+                "last_update": "14:04:34"
             }
         }
     }
