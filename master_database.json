@@ -497,14 +497,14 @@
         },
         "happyfarm": {
             "N\u00f4ng D\u00e2n 2": {
-                "balance": 270016,
-                "profit": 64080,
-                "last_update": "00:53:31"
+                "balance": 168106,
+                "profit": 0,
+                "last_update": "00:39:25"
             },
             "N\u00f4ng D\u00e2n 1": {
-                "balance": 177046,
-                "profit": 0,
-                "last_update": "00:50:10"
+                "balance": 241186,
+                "profit": 64140,
+                "last_update": "00:54:45"
             }
         }
     }
