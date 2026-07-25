@@ -447,14 +447,21 @@
     "2026-07-25": {
         "happyfarm": {
             "N\u00f4ng D\u00e2n 2": {
-                "balance": 52866,
+                "balance": 52106,
                 "profit": 129752,
-                "last_update": "13:52:24"
+                "last_update": "13:38:50"
             },
             "N\u00f4ng D\u00e2n 1": {
                 "balance": 321836,
                 "profit": 24000,
                 "last_update": "13:48:18"
+            }
+        },
+        "trangtraimmo": {
+            "Ch\u1ee7 Tr\u1ea1i 1": {
+                "balance": 2577,
+                "profit": 10,
+                "last_update": "13:52:29"
             }
         }
     }
